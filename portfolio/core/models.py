@@ -19,4 +19,16 @@ class News(models.Model):
 
 
 
-# class Author(models.Model):
+class Car(models.Model):
+    marka = models.CharField(max_length=50)
+    model = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images/')
+    comments = models.TextField()
+    year = models.IntegerField()
+    color = models.CharField(max_length=50)
+    price = models.IntegerField()
+    phone = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.marka
+
