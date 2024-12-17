@@ -8,18 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  {% include 'includes/navbar.html' %}
 
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid mt-5 text-center">
 
+      <h1>Mashin elanlari</h1>
+
+        <div class="row mt-5">
             {% for car in cars %}
             <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; margin: 0 auto;">
                     <img class="card-img-top" src="{{car.image.url}}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">{{car.marka}} {{car.model}}</h5>
                       <p class="card-text">{{car.year}} il buraxilishi</p>
-                      <a href="#" class="btn btn-primary">Etrafli</a>
+                      <a href="{% url 'core:car' car.id%}" class="btn btn-primary">Etrafli</a>
                     </div>
                   </div>
             </div>

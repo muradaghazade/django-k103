@@ -9,18 +9,31 @@
 </head>
 <body>
 
-    {% for xeber in xeberler %}
+  {% include 'includes/navbar.html' %}
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{xeber.image.url}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ xeber.title }}</h5>
-          <p class="card-text">{{ xeber.description }}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="container-fluid mt-5 text-center">
+    <h1>Xeberler</h1>
+    <div class="row mt-5">
+      {% for xeber in xeberler %}
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem; margin: 0 auto;">
+          <img class="card-img-top" src="{{xeber.image.url}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ xeber.title }}</h5>
+            <p class="card-text">{{ xeber.description }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
+      {% endfor %}
+    </div>
+  </div>
 
-    {% endfor %}
+   
+
+    
+
+    
 
 
 
