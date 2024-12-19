@@ -28,6 +28,7 @@ class Car(models.Model):
     color = models.CharField(max_length=50)
     price = models.IntegerField()
     phone = models.CharField(max_length=20)
+    views = models.IntegerField(default=0)
 
     def __str__(self):
         return self.marka

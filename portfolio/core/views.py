@@ -20,7 +20,18 @@ def cars(request):
 
 def car(request, id):
     car = Car.objects.get(id=id)
+    car.views += 1
+    car.save()
     context = {
         'car': car
     }
     return render(request, 'car-detail.html', context)
+
+def news_detail(request, id):
+    news = News.objects.get(id=id)
+    news.views += 3
+    news.save()
+    context = {
+        'news': news
+    }
+    return render(request, 'news-detail.html', context)
