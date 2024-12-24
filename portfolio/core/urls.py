@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import home, cars, car, news_detail
+from core.views import home, cars, car, news_detail, videos
 
 app_name = 'core'
 
@@ -8,4 +8,5 @@ urlpatterns = [
     path('news/<int:id>/',news_detail, name='news_detail'),
     path('cars/', cars, name='cars'),
     path('car/<int:id>/', car, name='car'),
+    path('videos/', videos, name='videos')
 ]
