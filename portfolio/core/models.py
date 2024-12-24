@@ -42,3 +42,15 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Comp(models.Model):
+    image = models.ImageField(upload_to='images/')
+    model = models.CharField(max_length=50)
+    ram = models.IntegerField(default=0)
+    storage = models.IntegerField(default=0)
+    cpu = models.CharField(max_length=50)
+    price = models.IntegerField(default=0)
+    
+
+    def __str__(self):
+        return self.model

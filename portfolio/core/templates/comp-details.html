@@ -8,24 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    {% include 'includes/navbar.html' %}
+  {% include 'includes/navbar.html' %}
+    <div style="text-align: center;">
+        <img width="400px" src="{{comps.image.url}}" alt="">
+        <h1>{{comps.model}}<h1>
+            <p>{{comps.ram}}<p>
+                <p>{{comps.storage}}<p>
+                    <p>{{comps.cpu}}<p>
+                        <p>{{comps.price}}<p>
+                
 
 
-    
-    <div class="container-fluid">
-        <div class="row">
-            {% for video in videos %}
-            <div class="col-md-6">
-                {{video.video|safe}}
 
-                <h1>{{video.title}}</h1>
 
-                <p>{{video.created_at}}</p>
-                <a href="{% url 'core:video' video.id%}"><button>Etrafli</button></a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+
 
 
 
@@ -39,6 +35,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
 </body>
 </html>

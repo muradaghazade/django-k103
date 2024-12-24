@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import News, Car, Video
+from core.models import News, Car, Video, Comp
 
 def home(request):
     news = News.objects.all()
@@ -43,3 +43,28 @@ def videos(request):
         'videos': vids
     }
     return render(request, 'videos.html', context)
+
+
+def video(request, id):
+    video = Video.objects.get(id=id)
+    video.views += 1
+    video.save()
+    context = {
+        'video': video
+    }
+    return render(request, 'video-detail.html', context)
+
+def comp(request):
+    comp = Comp.objects.all()
+    context = {
+        'comp': comp
+    }
+    return render(request, 'comp-elan.html', context)
+
+
+def comps(request, id):
+    comps = Comp.objects.get(id=id)
+    context = {
+        'comps': comps
+    }
+    return render(request, 'comp-details.html', context)
