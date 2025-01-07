@@ -2,7 +2,10 @@ from django.shortcuts import render
 from core.models import News, Car, Video, Comp
 
 def home(request):
-    news = News.objects.all()
+    search = request.GET.get('search')
+    news = News.objects.order_by('-id')
+    if search:
+        news = News.objects.filter(title__icontains=search)
     context = {
         'xeberler': news
     }
