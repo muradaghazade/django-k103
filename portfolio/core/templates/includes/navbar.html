@@ -21,7 +21,9 @@
 
       <div class="ml-auto">
         <button class="btn btn-primary">Login</button>
-        <button class="btn btn-outline-primary">Register</button>
+        <a href="{% url 'accounts:register' %}">
+          <button class="btn btn-outline-primary">Register</button>
+        </a>
       </div>
     </div>
   </nav>
