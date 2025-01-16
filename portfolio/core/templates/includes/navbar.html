@@ -20,7 +20,9 @@
       </ul>
 
       <div class="ml-auto">
-        <button class="btn btn-primary">Login</button>
+        <a href="{% url 'accounts:login' %}">
+          <button class="btn btn-primary">Login</button>
+        </a>
         <a href="{% url 'accounts:register' %}">
           <button class="btn btn-outline-primary">Register</button>
         </a>
