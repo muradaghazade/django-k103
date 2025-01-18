@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from accounts.forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login as login_user
 
@@ -9,7 +9,7 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password1'])
             user.save()
-            return render(request, 'index.html')
+            return redirect('accounts:login')
     form = RegisterForm()
     return render(request, 'register.html', {'form':form})
 
@@ -24,6 +24,6 @@ def login(request):
         if user is not None:
             print("salam 2")
             login_user(request, user)
-            return render(request, 'index.html')
+            return redirect('core:home')
     form = LoginForm()
     return render(request, 'login.html', {'form':form})
