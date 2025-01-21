@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from accounts.forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login as login_user
+from accounts.models import User
 
 def register(request):
     if request.method == 'POST':
@@ -27,3 +28,11 @@ def login(request):
             return redirect('core:home')
     form = LoginForm()
     return render(request, 'login.html', {'form':form})
+
+
+def profile(request, id):
+    user = User.objects.get(id=id)
+    context = {
+        'user': user  
+    }
+    return render(request, 'profile.html', context)

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                {% if user.image %}
+                <img src="{{user.image.url}}"
+                  alt="Avatar" class="img-fluid my-4" style="width: 80px; height: 80px; border-radius: 50%;" />
+                {% else %}
+                <img src="https://thumbs.dreamstime.com/b/default-profile-picture-avatar-photo-placeholder-vector-illustration-default-profile-picture-avatar-photo-placeholder-vector-189495158.jpg"
+                alt="Avatar" class="img-fluid my-4" style="width: 80px; height: 80px; border-radius: 50%;" />
+                {% endif %}
+                <h5 style="color: black;">{{user.first_name}} {{user.last_name}}</h5>
+                <p style="color: black;">@{{user.username}}</p>
+                <i class="far fa-edit mb-5"></i>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-12 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted">{{user.email}}</p>
+                    </div>
+                    
+                  </div>
+                  <h6>Projects</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                   {% for post in user.news.all %}
+                   <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <img src="{{post.image.url}}" class="card-img-top" alt="...">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.description}}</p>
+                        <a href="{% url 'core:news_detail' post.id %}" class="btn btn-primary">Etrafli</a>
+                      </div>
+                    </div>
+                   </div>
+                   {% endfor %}
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

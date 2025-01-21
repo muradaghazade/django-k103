@@ -1,6 +1,8 @@
 from django.db import models
+from accounts.models import User
 
 class News(models.Model):
+    user = models.ForeignKey(User, related_name='news', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=255)
     description  = models.TextField()
     image = models.ImageField(upload_to='images/')
