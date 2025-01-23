@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from core.models import News, Car, Video, Comp
+from core.forms import *
 
 def home(request):
     search = request.GET.get('search')
@@ -71,3 +72,14 @@ def comps(request, id):
         'comps': comps
     }
     return render(request, 'comp-details.html', context)
+
+
+def create_news(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.user = request.user
+            form.save()
+            return redirect('core:home')
+    form = NewsForm()
+    return render(request, 'create-news.html', {'form':form})

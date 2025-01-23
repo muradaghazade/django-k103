@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import home, cars, car, news_detail, videos, video, comp, comps
+from core.views import *
 
 app_name = 'core'
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path('video/<int:id>/', video, name='video'),
     path('comp/', comp, name='comp'),
     path('comps/<int:id>/', comps, name='comps'),
+    path('create-news/', create_news, name='create_news'),
 ]
